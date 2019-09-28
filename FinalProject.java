@@ -12,6 +12,7 @@ import sun.audio.AudioStream;
 /**
  *
  * @author Nicolas Kellum
+ * @author Kristian Suzara
  */
 public class FinalProject {
 
@@ -20,18 +21,18 @@ public class FinalProject {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException, InterruptedException {
-
+        Song jingleBell = new Song("Jingle Bell", "3330333035123");
+        Song test = new Song("???", "3210321011112222302010d");
+        SongCollection myThing = new SongCollection();
+        myThing.addSong(jingleBell);
+        myThing.addSong(test); 
         Interface view = new Interface("Song♪");
         view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         view.setLocation(100, 200);
         view.pack();
         view.setVisible(true);
-        /*
-        Song jingleBell = new Song("Jingle Bell", "3330333035123");
-        Song test = new Song("T H I C C", "3330333035d");
-        SongCollection myThing = new SongCollection();
-        myThing.addSong(jingleBell);
-        myThing.addSong(test); */
+       
+
     }
 
     public static void Play(String s) {
@@ -95,7 +96,6 @@ public class FinalProject {
                     case "8":
                         note8 = new FileInputStream(new File("src\\notes\\8.wav"));
                         AudioStream note_8 = new AudioStream(note8);
-
                         AudioPlayer.player.start(note_8);
                         break;
                     case "0":
@@ -108,7 +108,6 @@ public class FinalProject {
                 }
             }
         } catch (Exception e) {
-            System.out.println("played");
         }
 
     }
